@@ -1,0 +1,9 @@
+cat /etc/passwd
+
+flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+
+# Install John -> launch Docker, docker run -it debian
+# apt-get install, apt-gt upgrade, apt-get install john
+
+# john pwdfile (the file must contain the hash you want to crack, here : 42hDRfypTqqnw)
+# token : f2av5il02puano7naaf6adaaf
