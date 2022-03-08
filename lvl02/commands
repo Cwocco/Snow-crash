@@ -1,0 +1,12 @@
+#Copy from Vm to local
+scp '-P 4242' level02@192.168.56.101:level02.pcap .
+
+chmod 777 to change rights on file
+
+Then use wireshark to open the pcap file, follow the TCP stream
+You obtain this : ft_wandr...NDRel.L0L
+Now you search the corresponding value HEX/ASCII value and you find that dot is "DEL"
+
+Password is : ft_waNDReL0L
+
+flag : kooda2puivaav1idi4f57q8iq
