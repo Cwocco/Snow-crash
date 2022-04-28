@@ -1,0 +1,21 @@
+# We have a binary file and a file named token, let's ltrace it
+	ltrace ./level10
+# if we execute the binary it print us what it is waiting for as argument which is : ./level10 file host
+# We can see some print "sends file to host if you have access to it"
+# We should try to give host as arg when executing the binary
+	./level10 token 192.168.56.1
+# You don't have access to token
+# let's ltrace again with the correct arg
+	ltrace ./level10 token 192.168.56.1
+# There is a call to access function, let's check the man
+# http://manpagesfr.free.fr/man/man2/access.2.html // We can see in the "notes" part something we can exploit
+# https://www.techtarget.com/searchstorage/definition/race-condition#:~:text=A%20simple%20example%20of%20a,position%20turns%20the%20light%20off.
+# Let's try to create a symbolic link with our own file in a while statement which will loop over and over. Then delete it, then try the same with the token fle.
+# Our goal here is to exploit the race condition error, we want to exploit the small time between the check of rights so our token file will be opened with the rights of our own file.
+# If we launch our two scripts on two differents shell we have an error message: unable to connect to host with port 6969.
+# We need to use netcat command to listen on that port on a third opened shell
+# First, launch nc -kl 6969
+# Second, script that create and delete symbolic link on loop
+# Last, script that connect to the host on loop
+# Password is : woupa2yuojeeaaed06riuj63c
+# Token is : feulo4b72j7edeahuete3no7c

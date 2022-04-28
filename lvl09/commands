@@ -1,0 +1,31 @@
+# We can see we have a binary file and a file named token, let's execute it
+	./level09 token
+	./level09 Hello
+# Result is : tpmhr
+# Result is : Hfnos
+# Seems like the return print each char by it's current position in the string
+# We need to do a function to revert that
+
+ '#'include <stdio.h>
+
+void main(int argc, char **argv)
+{
+        (void)argc;
+        char buf[1000];
+        int fd = open(argv[1], 0x0000);
+        int i = 0;
+
+        read(fd, buf, 999);
+        buf[999] = '\0';
+        while(buf[i])
+        {
+                buf[i] -= i;
+                i++;
+        }
+        printf("%s\n", buf);
+}
+# We now give as argument the token file to our program
+	su flag09
+	getflag
+# Password is : f3iji1ju5yuevaus41q1afiuq
+# Token is : s5cAJpM8ev6XHw998pRWG728z
