@@ -1,0 +1,11 @@
+# We have a binary and a php file, let's check the php code
+# We can see two function with some regex check with preg_replace function
+# The regex we have to respect must start with "[x" and end with "]"
+# We found that on the internet for the preg_replace function : https://captainnoob.medium.com/command-execution-preg-replace-php-function-exploit-62d6f746bda4
+# We can execute a function, a system call for example to exploit the breach
+# Let's create a folder and a file in /tmp, chmod777 to have correct rights access
+	echo "[x {\${system(getflag)}}]" > /tmp/exploit/ret
+# Then let give as argument to our binary the file we created with the correct regex and call of getflag in it
+	echo "[x {\${system(getflag)}}]" > /tmp/exploit/ret
+
+# Token is : wiok45aaoguiboiki2tuin6ub
