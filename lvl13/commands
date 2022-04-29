@@ -1,0 +1,17 @@
+# We have a binary file, let's try to execute it
+# UID 2013 started us but we we expect 4242, we have this error message.
+# We then need to find a way to start our program with the correct UID
+# Let's use gdb to check what's going on
+	gdb level13
+	disas main
+# We can see a call of the cmp function which probably compare our UID to the given one in the main (4242)
+# This is where we need to change the UID so we can launch our program with the 4242 UID
+# Let's check on the internet the hexa for 4242 -> 0x1092
+# Let's set a breakpoint to the cmp call so we can change eax register value
+	b * *0x0804859a
+	run
+# We need to set eax register to 4242 value in hexa
+	set %eax=0x1092
+	continue
+# Token is : 2A31L79asukciNyi8uppkEuSx
+
