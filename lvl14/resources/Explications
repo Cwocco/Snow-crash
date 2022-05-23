@@ -1,0 +1,25 @@
+# The only thing left in that level is getflag
+
+gdb /bin/getflag
+
+# Let's disas main to check the calls
+
+disas main
+
+# We see a ptrace and a getenv call, we'll probably use  that
+# We know from, the last level that getflag needs to give it the correct UID to getflag
+#
+
+id flag14
+# uid=3014(flag14) gid=3014(flag14) groups=3014(flag14),1001(flag)
+
+# To bypass the ptrace we need to set a breakpoint on %eax cmp comparaison
+# (We've seen that eax is the register that save the return of a function)
+
+b main
+run
+ni # Until we get to the register of ptrace call (0x08048989)
+# Then we set the eax register to 0 so we can access ptrace
+
+set $eax=0
+
